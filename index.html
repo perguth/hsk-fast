@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSK Fast Learning</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preload" href="complete-hsk-vocabulary/complete.min.json" as="fetch" crossorigin>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>HSK Fast Learning</h1>
+            <div class="stats">
+                <span id="level-display">HSK 1</span>
+                <span id="progress">0/0</span>
+                <span id="accuracy">0%</span>
+            </div>
+        </header>
+
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Loading HSK vocabulary...</p>
+        </div>
+
+        <div id="app" class="app hidden">
+            <div class="controls">
+                <select id="hsk-level" class="level-select">
+                    <option value="1">HSK 1</option>
+                    <option value="2">HSK 2</option>
+                    <option value="3">HSK 3</option>
+                    <option value="4">HSK 4</option>
+                    <option value="5">HSK 5</option>
+                    <option value="6">HSK 6</option>
+                </select>
+                <button id="reset-progress" class="btn btn-secondary">Reset Progress</button>
+            </div>
+
+            <div class="card-container">
+                <div id="flashcard" class="flashcard">
+                    <div class="card-front">
+                        <div class="chinese" id="chinese-text">你好</div>
+                        <div class="pinyin" id="pinyin-text">nǐ hǎo</div>
+                        <button id="show-answer" class="btn btn-primary">Show Answer</button>
+                    </div>
+                    <div class="card-back hidden">
+                        <div class="meaning" id="meaning-text">hello</div>
+                        <div class="additional-info">
+                            <div class="pos" id="pos-text"></div>
+                            <div class="frequency" id="frequency-text"></div>
+                        </div>
+                        <div class="answer-buttons">
+                            <button id="unknown-btn" class="btn btn-unknown">Unknown</button>
+                            <button id="known-btn" class="btn btn-known">Known</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="session-stats">
+                <div class="stat">
+                    <span class="stat-label">New Cards:</span>
+                    <span id="new-cards">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Reviews:</span>
+                    <span id="review-cards">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Learned:</span>
+                    <span id="learned-cards">0</span>
+                </div>
+            </div>
+
+            <div class="keyboard-hints">
+                <p>Keyboard: <kbd>Space</kbd> Show Answer • <kbd>←</kbd> Unknown • <kbd>→</kbd> Known</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
